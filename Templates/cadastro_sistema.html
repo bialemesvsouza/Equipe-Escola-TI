@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Configuração - Usuário</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #cfd3dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .mobile {
+            width: 360px;
+            height: 640px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .card {
+            background: #ececf1;
+            width: 90%;
+            height: 95%;
+            padding: 25px 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .card::-webkit-scrollbar {
+            display: none;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #5a4fcf;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            background: #f4f4f7;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #5a4fcf;
+        }
+
+        .password-hint {
+            font-size: 11px;
+            color: #888;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .checkbox-group {
+            background: #f4f4f7;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 5px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #444;
+        }
+
+        .checkbox-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-item input {
+            margin-right: 10px;
+            accent-color: #5a4fcf;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #5a4fcf, #6c5ce7);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #dcdce3;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .msg {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 15px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .msg.error {
+            color: #ff5c5c;
+            display: block;
+        }
+
+        .success-box {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .success-box h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile">
+    <div class="card">
+        
+        <div id="step1" class="step active">
+            <h2>Criar Conta</h2>
+            <p class="subtitle">Seus dados básicos de acesso (UC-01)</p>
+
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="seu@email.com" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Crie uma senha" required>
+            <span class="password-hint">Mínimo de 8 caracteres, com números e letras (RB-02).</span>
+
+            <div id="mensagemErro" class="msg error"></div>
+
+            <button type="button" class="btn btn-primary" onclick="avancarEtapa2()">Continuar</button>
+            
+            <div style="text-align: center; font-size: 12px; margin-top: 20px; color: #555;">
+                Já tem uma conta? <a href="#" style="color: #5a4fcf; font-weight: bold;">Faça login</a>
+            </div>
+        </div>
+
+        <div id="step2" class="step">
+            <h2>Personalizar</h2>
+            <p class="subtitle">Deixe o app com a sua cara</p>
+
+            <label for="foco">Qual seu foco principal?</label>
+            <select id="foco">
+                <option value="concurso">Concursos Públicos</option>
+                <option value="faculdade">Faculdade / TCC</option>
+                <option value="enem">ENEM / Vestibular</option>
+                <option value="idiomas">Idiomas</option>
+            </select>
+
+            <label for="tema">Tema Visual e Acessibilidade</label>
+            <select id="tema">
+                <option value="padrao">Padrão (Claro)</option>
+                <option value="escuro">Modo Escuro</option>
+                <option value="daltonismo">Filtro para Daltonismo (RB-03)</option>
+                <option value="contraste">Alto Contraste</option>
+            </select>
+
+            <label>Bloquear distrações iniciais (UC-16)</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox" checked> Redes Sociais (Insta, TikTok)</label>
+                <label class="checkbox-item"><input type="checkbox" checked> Streaming (YouTube, Netflix)</label>
+                <label class="checkbox-item"><input type="checkbox"> Jogos</label>
+            </div>
+
+            <label>Lembretes (UC-12)</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox" checked id="notif"> Receber lembretes de estudo diários</label>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="finalizarCadastro()">Concluir Cadastro</button>
+            <button type="button" class="btn btn-secondary" onclick="voltarEtapa1()">Voltar</button>
+        </div>
+
+        <div id="step3" class="step">
+            <div class="success-box">
+                <h1>🎉</h1>
+                <h2>Tudo pronto!</h2>
+                <p class="subtitle" style="margin-top: 10px;">Seu perfil foi configurado com sucesso.</p>
+                
+                <div style="background: #eef2ff; padding: 15px; border-radius: 12px; margin-top: 20px;">
+                    <p style="font-size: 13px; color: #4f46e5; font-weight: 600;">Você ganhou +100 Pontos</p>
+                    <p style="font-size: 11px; color: #666;">por completar seu cadastro! (UC-06)</p>
+                </div>
+
+                <button class="btn btn-primary" style="margin-top: 30px;" onclick="irParaDashboard()">Ir para o Workspace</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const usuariosRegistrados = ["teste@email.com", "admin@escola.com"];
+
+    function avancarEtapa2() {
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const senha = document.getElementById("senha").value;
+        const msg = document.getElementById("mensagemErro");
+
+        msg.style.display = "none";
+
+        if(!nome || !email || !senha) {
+            msg.innerText = "Preencha todos os campos básicos.";
+            msg.style.display = "block";
+            return;
+        }
+
+        if (usuariosRegistrados.includes(email)) {
+            msg.innerText = "Este e-mail já está em uso.";
+            msg.style.display = "block";
+            return;
+        }
+
+        const regexSenha = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        if (!regexSenha.test(senha)) {
+            msg.innerText = "A senha deve ter no mínimo 8 caracteres, com letras e números.";
+            msg.style.display = "block";
+            return;
+        }
+
+        document.getElementById("step1").classList.remove("active");
+        document.getElementById("step2").classList.add("active");
+    }
+
+    function voltarEtapa1() {
+        document.getElementById("step2").classList.remove("active");
+        document.getElementById("step1").classList.add("active");
+    }
+
+    function finalizarCadastro() {
+        document.getElementById("step2").classList.remove("active");
+        document.getElementById("step3").classList.add("active");
+    }
+
+    function irParaDashboard() {
+        alert("Redirecionando para a tela principal (Workspace)...");
+    }
+</script>
+
+</body>
+</html>
