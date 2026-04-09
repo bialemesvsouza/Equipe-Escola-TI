@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurar Notificações</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #cfd3dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .mobile {
+        width: 360px;
+        height: 640px; /* padrão de celular */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background: #ececf1;
+        width: 90%;
+        height: 95%; /* altura fixa dentro do "celular" */
+        padding: 20px;
+        border-radius: 25px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        overflow-y: auto; /* ativa scroll */
+    }
+
+    .card::-webkit-scrollbar {
+        display: none;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5a4fcf;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 13px;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input[type="time"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      background: #f4f4f7;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f4f4f7;
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .toggle input {
+      transform: scale(1.2);
+      accent-color: #5a4fcf;
+    }
+
+    .checkbox-group {
+      background: #f4f4f7;
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .checkbox-item input {
+      margin-right: 8px;
+      accent-color: #5a4fcf;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #5a4fcf, #6c5ce7);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #dcdce3;
+      color: #555;
+    }
+
+    .msg {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 10px;
+      color: #16a34a;
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="mobile">
+  <div class="card">
+
+    <h2>Notificações</h2>
+    <p class="subtitle">Personalize seus lembretes de estudo</p>
+
+    <div class="section">
+      <label>Receber notificações</label>
+      <div class="toggle">
+        <span>Ativar lembretes</span>
+        <input type="checkbox" id="ativar" checked onchange="toggleNotificacoes()">
+      </div>
+    </div>
+
+    <div class="section">
+      <label>Horário do lembrete</label>
+      <input type="time" id="horario" value="19:00">
+    </div>
+
+    <div class="section">
+      <label>Frequência</label>
+      <select id="frequencia">
+        <option value="diario">Todos os dias</option>
+        <option value="semana">Dias específicos</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label>Dias da semana</label>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox">Seg</label>
+        <label class="checkbox-item"><input type="checkbox">Ter</label>
+        <label class="checkbox-item"><input type="checkbox">Qua</label>
+        <label class="checkbox-item"><input type="checkbox">Qui</label>
+        <label class="checkbox-item"><input type="checkbox">Sex</label>
+        <label class="checkbox-item"><input type="checkbox">Sáb</label>
+        <label class="checkbox-item"><input type="checkbox">Dom</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <label>Modo Foco (Silenciar notificações)</label>
+      <select id="foco">
+        <option value="0">Desativado</option>
+        <option value="30">30 minutos</option>
+        <option value="60">1 hora</option>
+        <option value="120">2 horas</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" onclick="salvar()">Salvar Configurações</button>
+    <button class="btn btn-secondary" onclick="resetar()">Resetar</button>
+
+    <div id="msg" class="msg">Configurações aplicadas com sucesso ✔</div>
+
+  </div>
+</div>
+
+<script>
+
+    function toggleNotificacoes() {
+    const ativo = document.getElementById("ativar").checked;
+    document.getElementById("horario").disabled = !ativo;
+    document.getElementById("frequencia").disabled = !ativo;
+    }
+
+    function salvar() {
+    const msg = document.getElementById("msg");
+    msg.style.display = "block";
+
+    setTimeout(() => {
+        msg.style.display = "none";
+    }, 2500);
+    }
+
+    function resetar() {
+    document.getElementById("ativar").checked = true;
+    document.getElementById("horario").value = "19:00";
+    document.getElementById("frequencia").value = "diario";
+    document.getElementById("foco").value = "0";
+    }
+
+</script>
+
+</body>
+</html>
