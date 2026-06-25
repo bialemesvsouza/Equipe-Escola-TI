@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindLine — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="/TEMPLATES/STYLES/login.css" />
+  <link rel="stylesheet" href="/TEMPLATES/STYLES/style.css" />
+</head>
+<body>
+
+  <button id="themeToggle" class="theme-btn theme-btn-login" title="Alternar Tema">
+    <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; display: none;">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+
+  <div class="login-container">
+    <div class="login-card">
+      
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 9C2 5.13 5.13 2 9 2" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M9 2C12.87 2 16 5.13 16 9C16 12.87 12.87 16 9 16" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity="0.5"/>
+            <circle cx="9" cy="9" r="2.5" fill="white"/>
+          </svg>
+        </div>
+        <span class="brand-name">Mind<span>Line</span></span>
+      </div>
+
+      <h2 id="titulo-form">Acesse sua conta</h2>
+      <p id="subtitulo-form" class="subtitle">Bem-vindo de volta! Insira seus dados.</p>
+
+      <form id="formAuth" onsubmit="event.preventDefault();">
+        <div class="input-group" id="grupo-nome" style="display: none;">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Como quer ser chamado?" />
+        </div>
+
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" required />
+        </div>
+
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="••••••••" required />
+        </div>
+
+        <button type="button" id="btn-acao" class="btn-primary" onclick="executarAcao()">Entrar</button>
+      </form>
+
+      <div class="toggle-mode">
+        <span id="texto-alternativa">Ainda não tem uma conta?</span>
+        <button type="button" class="btn-link" id="btn-alternar" onclick="alternarModo()">Cadastre-se</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/JS/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindLine - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/TEMPLATES/STYLES/home.css" />
+  <link rel="stylesheet" href="/TEMPLATES/STYLES/style.css" />
+</head>
+<body>
+
+<div class="layout">
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 9C2 5.13 5.13 2 9 2" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M9 2C12.87 2 16 5.13 16 9C16 12.87 12.87 16 9 16" stroke="white" stroke-width="2.2" stroke-linecap="round" opacity="0.5"/>
+          <circle cx="9" cy="9" r="2.5" fill="white"/>
+        </svg>
+      </div>
+      <span class="brand-name">Mind<span>Line</span></span>
+    </div>
+
+    <div class="topbar-user">
+      <button id="themeToggle" class="theme-btn" title="Alternar tema">
+        <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+
+      <div class="user-points">
+        <svg viewBox="0 0 14 14" fill="none">
+          <polygon points="7,1 8.8,5.2 13.3,5.5 10,8.5 11.1,13 7,10.5 2.9,13 4,8.5 0.7,5.5 5.2,5.2" fill="currentColor"/>
+        </svg>
+        <span id="userPoints">0 pts</span>
+      </div>
+      <div class="user-chip">
+        <div class="user-avatar">ML</div>
+        <div class="user-info">
+          <span class="user-name">Estudante</span>
+          <span class="user-role">Estudante</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <span class="nav-label">Principal</span>
+
+    <a class="nav-item active" href="#" data-view="inicio">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 7L9 2L16 7V16H11V11H7V16H2V7Z"/>
+      </svg>
+      Inicio
+    </a>
+
+    <a class="nav-item" href="#" data-view="materias">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="14" height="14" rx="2"/>
+        <path d="M6 6H12M6 9H12M6 12H9"/>
+      </svg>
+      Materias
+      <span class="nav-badge" id="materiasBadge">0</span>
+    </a>
+
+    <a class="nav-item" href="#">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="9" r="7"/>
+        <path d="M9 5V9L12 11"/>
+      </svg>
+      Temporizadores
+    </a>
+
+    <a class="nav-item" href="#" data-view="roteiros">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 2H12L14 4V16H4V2Z"/>
+        <path d="M7 7H11M7 10H11M7 13H9"/>
+        <path d="M12 2V4H14"/>
+      </svg>
+      Roteiros
+    </a>
+
+
+    <div class="nav-divider"></div>
+    <span class="nav-label">Progresso</span>
+
+    <a class="nav-item" href="#">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="2,14 6,8 10,11 14,4"/>
+        <circle cx="14" cy="4" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+      Estatisticas
+    </a>
+
+    <a class="nav-item" href="#" data-view="comunidade">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="7" r="3"/>
+        <circle cx="13" cy="6" r="2.5"/>
+        <path d="M1 16C1 13.2 3.2 11 6 11C8.8 11 11 13.2 11 16"/>
+        <path d="M13 10C15.2 10.5 17 12.3 17 16"/>
+      </svg>
+      Comunidade
+    </a>
+
+    <a class="nav-item" href="#">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="7,1 8.8,5.2 13.3,5.5 10,8.5 11.1,13 7,10.5 2.9,13 4,8.5 0.7,5.5 5.2,5.2"/>
+      </svg>
+      Conquistas
+    </a>
+
+    <div class="nav-divider"></div>
+
+    <a class="nav-item" href="#" data-view="loja">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 3H4L5.5 11H13.5L15 5H5"/>
+        <circle cx="7" cy="14" r="1.2"/>
+        <circle cx="12" cy="14" r="1.2"/>
+      </svg>
+      Loja
+    </a>
+
+    <a class="nav-item" href="#">
+      <svg class="nav-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="9" r="2.5"/>
+        <path d="M9 2V4M9 14V16M2 9H4M14 9H16M3.9 3.9L5.3 5.3M12.7 12.7L14.1 14.1M3.9 14.1L5.3 12.7M12.7 5.3L14.1 3.9"/>
+      </svg>
+      Configuracoes
+    </a>
+    
+  </nav>
+
+  <main class="center">
+    <div class="glow-ambient"></div>
+
+    <section class="home-view active" id="inicioView">
+      <div class="study-workspace">
+        <aside class="study-left-panel">
+          <div class="study-mode-panel">
+            <div class="study-mode-main">
+              <label class="study-mode-label" for="studyMethodSelect">Metodo de estudo</label>
+              <select id="studyMethodSelect" class="study-method-select">
+                <option value="standard">Padrao</option>
+                <option value="pomodoro">Pomodoro</option>
+                <option value="time-blocking">Time Blocking</option>
+                <option value="52-17">52/17</option>
+                <option value="90-20">90/20</option>
+                <option value="free">Estudo livre</option>
+                <option value="235">Tecnica 2-3-5</option>
+                <option value="spaced">Revisao espacada</option>
+                <option value="active-recall">Active Recall</option>
+                <option value="interleaving">Intercalado</option>
+                <option value="feynman">Feynman</option>
+              </select>
+            </div>
+
+            <div class="study-mode-extra">
+              <label class="study-mode-label" for="blockStartTime">Inicio dos blocos</label>
+              <input type="time" id="blockStartTime" class="study-time-input" />
+            </div>
+
+            <div class="study-mode-status">
+              <span id="methodName">Padrao</span>
+              <strong id="phaseName">Pronto</strong>
+            </div>
+          </div>
+
+          <div class="study-method-board">
+            <div class="method-board-header">
+              <span id="methodSummary">Selecione uma materia para montar o estudo.</span>
+              <strong id="cycleCounter">0/0</strong>
+            </div>
+            <div class="phase-list" id="phaseList"></div>
+            <div class="review-alerts" id="reviewAlerts"></div>
+            <textarea id="methodNotes" class="method-notes" placeholder="Anotacoes do metodo Feynman"></textarea>
+          </div>
+        </aside>
+
+        <div class="timer-stage">
+          <div>
+            <div class="subject-label" id="activeSubjectName">Carregando materias...</div>
+            <div class="subject-sub" id="activeSubjectDetails">Conectando ao backend</div>
+          </div>
+
+          <div class="timer-wrap">
+            <svg class="timer-svg" viewBox="0 0 180 180">
+              <circle class="timer-bg-ring" cx="90" cy="90" r="80"/>
+              <circle class="timer-prog-ring" id="timerRing" cx="90" cy="90" r="80"/>
+            </svg>
+            <div class="timer-inner">
+              <div class="timer-display" id="timerDisplay">25:00</div>
+              <div class="timer-status-label" id="timerStatusLabel">Pomodoro ativo</div>
+            </div>
+          </div>
+
+          <div class="timer-controls">
+            <button class="ctrl-btn sm" onclick="resetTimer()" title="Reiniciar">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.5 8A5.5 5.5 0 1 0 4 4.2M2.5 2V5.5H6"/>
+              </svg>
+            </button>
+
+            <button class="ctrl-btn lg" id="playPauseBtn" onclick="toggleTimer()">
+              <svg id="playIcon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M6.5 5.5L15 10L6.5 14.5V5.5Z"/>
+              </svg>
+              <svg id="pauseIcon" viewBox="0 0 20 20" fill="currentColor" style="display:none">
+                <rect x="5" y="4" width="3.5" height="12" rx="1"/>
+                <rect x="11.5" y="4" width="3.5" height="12" rx="1"/>
+              </svg>
+            </button>
+
+            <button class="ctrl-btn sm" onclick="skipTimer()" title="Pular sessao">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 4L10 8L3 12V4ZM13 4V12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-view materias-view" id="materiasView">
+      <div class="materias-header">
+        <div>
+          <div class="subject-label">Materias</div>
+          <div class="subject-sub">Acompanhe metas, progresso e selecione o proximo foco.</div>
+        </div>
+      </div>
+
+      <form class="materia-form" id="materiaForm">
+        <div class="form-row">
+          <label for="materiaNome">Materia</label>
+          <input type="text" id="materiaNome" placeholder="Ex: Matematica" required />
+        </div>
+
+        <div class="form-row">
+          <label for="materiaCapitulo">Conteudo atual</label>
+          <input type="text" id="materiaCapitulo" placeholder="Ex: Funcoes do 2 grau" />
+        </div>
+
+        <div class="form-row compact">
+          <label for="materiaMeta">Tempo diario</label>
+          <input type="number" id="materiaMeta" min="5" step="5" value="60" required />
+        </div>
+
+        <div class="form-row color-row">
+          <label for="materiaCor">Cor</label>
+          <input type="color" id="materiaCor" value="#7C6FE0" />
+          <div class="color-swatches" aria-label="Cores rapidas">
+            <button type="button" class="color-swatch active" data-color="#7C6FE0" style="background:#7C6FE0;" title="Roxo"></button>
+            <button type="button" class="color-swatch" data-color="#1D9E75" style="background:#1D9E75;" title="Verde"></button>
+            <button type="button" class="color-swatch" data-color="#EF9F27" style="background:#EF9F27;" title="Amarelo"></button>
+            <button type="button" class="color-swatch" data-color="#D4537E" style="background:#D4537E;" title="Rosa"></button>
+            <button type="button" class="color-swatch" data-color="#2F80ED" style="background:#2F80ED;" title="Azul"></button>
+          </div>
+        </div>
+
+        <button class="materia-submit" type="submit">Cadastrar</button>
+      </form>
+
+      <div class="materias-grid" id="materiasGrid"></div>
+    </section>
+  </main>
+
+  <aside class="sidebar-right">
+    <span class="sidebar-title">Temporizadores</span>
+    <div id="subjectCards" class="subject-list"></div>
+
+    <div class="goal-card">
+      <div class="goal-header">
+        <div class="goal-icon">
+          <svg viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="7.5" cy="7.5" r="5.5"/>
+            <circle cx="7.5" cy="7.5" r="2"/>
+            <path d="M7.5 1V2.5M13.5 7.5H12M7.5 13.5V12"/>
+          </svg>
+        </div>
+        <div>
+          <div class="goal-title">Meta total do dia</div>
+          <div class="goal-meta">Progresso geral de hoje</div>
+        </div>
+      </div>
+      <div class="goal-prog-wrap">
+        <div class="goal-prog-fill" id="totalGoalFill"></div>
+      </div>
+      <div class="goal-stats">
+        <span><strong id="totalStudied">00:00</strong> estudadas</span>
+        <span><strong id="totalGoal">00:00</strong> meta</span>
+      </div>
+    </div>
+
+    <div class="log-card">
+      <div class="log-title">Progresso de hoje</div>
+      <div id="progressLog"></div>
+    </div>
+  </aside>
+</div>
+
+<script src="/JS/home.js"></script>
+</body>
+</html>

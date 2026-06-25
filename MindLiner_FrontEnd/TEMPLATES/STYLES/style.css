@@ -1,0 +1,128 @@
+/* ── RESET BÁSICO ──────────────────────────────── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* ── VARIÁVEIS DE TEMA (MODO ESCURO - PADRÃO) ──── */
+:root {
+  --bg-base:        #0D0F14;
+  --bg-surface:     #13161E;
+  --bg-card:        #1A1D27;
+  --bg-card-hover:  #20243180;
+  --accent:         #7C6FE0;
+  --accent-soft:    #7C6FE022;
+  --accent-mid:     #7C6FE055;
+  --teal:           #1D9E75;
+  --teal-soft:      #1D9E7520;
+  --amber:          #EF9F27;
+  --amber-soft:     #EF9F2720;
+  --text-primary:   #EEEDF8;
+  --text-secondary: #8B8DA8;
+  --text-muted:     #484B65;
+  --border:         #1F2235;
+  --border-soft:    #2A2D45;
+  
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      16px;
+  --radius-xl:      22px;
+}
+
+/* ── MODO CLARO ───────────────────────────────────── */
+:root[data-theme="light"] {
+  --bg-base:        #F4F5F8;
+  --bg-surface:     #FFFFFF;
+  --bg-card:        #FFFFFF;
+  --bg-card-hover:  #F4F5F880;
+  --accent:         #6B5CD3;
+  --accent-soft:    #6B5CD322;
+  --accent-mid:     #6B5CD355;
+  --teal:           #188763;
+  --teal-soft:      #1D9E7520;
+  --amber:          #D98A1A;
+  --amber-soft:     #EF9F2720;
+  --text-primary:   #11141D;
+  --text-secondary: #565973;
+  --text-muted:     #8B8DA8;
+  --border:         #E2E4EB;
+  --border-soft:    #EDEEF4;
+}
+
+/* ── ESTILOS GLOBAIS DE CORPO E TIPOGRAFIA ─────── */
+html, body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ── SCROLLBAR GERAL ────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-soft); border-radius: 4px; }
+
+/* ── TOAST NOTIFICATIONS (Componente Global) ───── */
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.toast {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(120%);
+  animation: slideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--accent);
+}
+
+.toast.error {
+  border-left-color: #ef4444;
+}
+
+.toast.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes slideIn {
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { transform: translateX(120%); opacity: 0; }
+}
+
+/* ── BOTÃO DE TEMA (Global) ────────────────────── */
+.theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.15s, color 0.15s;
+}
+
+.theme-btn:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
