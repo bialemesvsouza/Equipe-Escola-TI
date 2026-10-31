@@ -1,6 +1,0 @@
-com\mindline\backend\repository\UsuarioRepository.class
-com\mindline\backend\WebConfig.class
-com\mindline\backend\BackendApplication.class
-com\mindline\backend\model\Usuario.class
-com\mindline\backend\controller\UsuarioController.class
-com\mindline\backend\controller\TesteController.class
