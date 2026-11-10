@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "name": "Equipe-Escola-TI (docs)",
+      "path": "."
+    },
+    {
+      "name": "BackEnd_ML (API)",
+      "path": "../BackEnd_ML"
+    },
+    {
+      "name": "FrontEnd_ML (web)",
+      "path": "../FrontEnd_ML"
+    },
+    {
+      "name": "MindLiner-Mobile (app)",
+      "path": "../MindLiner-Mobile"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack",
+      "vmware.vscode-spring-boot",
+      "oxc.oxc-vscode",
+      "expo.vscode-expo-tools"
+    ]
+  }
+}
